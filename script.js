@@ -1,17 +1,15 @@
-describe('Example Cypress Test', () => {
-  it('Should perform actions and assertions', () => {
-    cy.window().then((window) => {
-      // Access and assert on the variables within the window context
-      cy.wrap(window.team).should('deep.equal', players);
+const players=["john","Bob","Alice","Poppy"];
+const person={
+    name: "John Doe",
+    age:80,
+};
 
-      // Modify the variables within the window context
-      window.team[3] = 'Dhoni';
+const team = players;
+const team1 = [...players];
+const cap1 = {...person};
 
-      // Perform assertions after modifying the variables
-      cy.wrap(window.team).should('deep.equal', players);
-
-      // Continue with more actions and assertions
-      // ...
-    });
-  });
-});
+window.players= players;
+window.person=person;
+window.team= team;
+window.team1= team1;
+window.cap1=cap1;
