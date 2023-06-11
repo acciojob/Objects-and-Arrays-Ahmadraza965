@@ -1,7 +1,19 @@
-let players = []; // Array of players
-let person = {}; // Object named person
+const players = ['Player 1', 'Player 2', 'Player 3'];
+const person = {
+  name: 'John',
+  age: 25,
+  nationality: 'USA'
+};
 
-let team = players; // Variable storing a reference to players array
-let team1 = [...players]; // Variable storing a copy of players array using spread syntax
+// Create a variable 'team' that references the 'players' array
+const team = players;
 
-let cap1 = { ...person }; // Variable storing a copy of person object using spread syntax
+// Create a variable 'team1' that is a copy of the 'players' array
+const team1 = [...players];
+
+// Create a variable 'cap1' that is a copy of the 'person' object
+const cap1 = { ...person };
+
+console.log(team);   // Output: ['Player 1', 'Player 2', 'Player 3']
+console.log(team1);  // Output: ['Player 1', 'Player 2', 'Player 3']
+console.log(cap1);   // Output: { name: 'John', age: 25, nationality: 'USA' }
