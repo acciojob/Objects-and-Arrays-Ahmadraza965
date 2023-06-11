@@ -1,19 +1,17 @@
-const players = ['Player 1', 'Player 2', 'Player 3'];
-const person = {
-  name: 'John',
-  age: 25,
-  nationality: 'USA'
-};
+describe('Example Cypress Test', () => {
+  it('Should perform actions and assertions', () => {
+    cy.window().then((window) => {
+      // Access and assert on the variables within the window context
+      cy.wrap(window.team).should('deep.equal', players);
 
-// Create a variable 'team' that references the 'players' array
-const team = players;
+      // Modify the variables within the window context
+      window.team[3] = 'Dhoni';
 
-// Create a variable 'team1' that is a copy of the 'players' array
-const team1 = [...players];
+      // Perform assertions after modifying the variables
+      cy.wrap(window.team).should('deep.equal', players);
 
-// Create a variable 'cap1' that is a copy of the 'person' object
-const cap1 = { ...person };
-
-console.log(team);   // Output: ['Player 1', 'Player 2', 'Player 3']
-console.log(team1);  // Output: ['Player 1', 'Player 2', 'Player 3']
-console.log(cap1);   // Output: { name: 'John', age: 25, nationality: 'USA' }
+      // Continue with more actions and assertions
+      // ...
+    });
+  });
+});
